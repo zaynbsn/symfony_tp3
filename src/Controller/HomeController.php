@@ -37,6 +37,7 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/edit/{id}/{type}', name: 'link_edit')]
     public function edit($id, $type, EntityManagerInterface $entityManager): Response
     {
         $repository = $entityManager->getRepository(Link::class);
@@ -55,6 +56,7 @@ class HomeController extends AbstractController
         return $this->redirectTo("/");
     }
 
+    #[Route('/delete/{id}', name: 'link_delete')]
     public function delete($id, EntityManagerInterface $entityManager): Response
     {
         $repository = $entityManager->getRepository(Link::class);
