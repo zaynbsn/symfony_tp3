@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Link;
 use App\Entity\Reaction;
 use App\Entity\ReactionType;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -21,6 +22,9 @@ class LinkFixtures extends Fixture
             $link->setUrl($faker->url());
             $link->setTitle($faker->sentence(rand(1,8)));
             $link->setCreatedAt($date);
+            $userRepo = $manager->getRepository(User::class);
+            $user = $userRepo->find(1);
+            $link->setUser($user);
             $manager->persist($link);
             $date = $date->modify('-1 hour');
         }

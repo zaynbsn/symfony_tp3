@@ -1,8 +1,31 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'tailwind_2_layout.html.twig' %}
 
 {% block title %}Nouveau lien!{% endblock %}
 
 {% block body %}
-    <h1>Nouveau lien</h1>
-    {{ form(form) }}
+
+    {{ form_start(form) }}
+    <div class="min-h-screen flex items-center" style="background-color: antiquewhite">
+        <div class="w-full">
+            <h2 class="text-center font-bold text-2xl uppercase mb-10">Ajouter un lien</h2>
+            <div class="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2">
+                    <div class="mb-5">
+                        {{ form_label(form.title) }}
+                        {{ form_widget(form.title) }}
+                        {{ form_errors(form.title) }}
+                    </div>
+
+                    <div class="mb-5">
+                        {{ form_label(form.url) }}
+                        {{ form_widget(form.url) }}
+                        {{ form_errors(form.url) }}
+                    </div>
+                    <button class="block w-full font-bold p-4 rounded-lg" style="background-color: antiquewhite">Ajouter</button>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
 {% endblock %}
+

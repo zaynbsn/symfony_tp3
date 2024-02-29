@@ -6,12 +6,12 @@
 {%- endblock form_row -%}
 
 {%- block widget_attributes -%}
-    {%- set attr = attr|merge({ class: attr.class|default(widget_class|default('mt-1 w-full')) ~ (disabled ? ' ' ~ widget_disabled_class|default('border-gray-300 text-gray-500')) ~ (errors|length ? ' ' ~ widget_errors_class|default('border-red-700')) }) -%}
+    {%- set attr = attr|merge({ class: attr.class|default(widget_class|default('border border-gray-300 shadow p-3 w-full rounded mb-2')) ~ (disabled ? ' ' ~ widget_disabled_class|default('border-gray-300 text-gray-500')) ~ (errors|length ? ' ' ~ widget_errors_class|default('border-red-700')) }) -%}
     {{- parent() -}}
 {%- endblock widget_attributes -%}
 
 {%- block form_label -%}
-    {%- set label_attr = label_attr|merge({ class: label_attr.class|default(label_class|default('block text-gray-800')) }) -%}
+    {%- set label_attr = label_attr|merge({ class: label_attr.class|default(label_class|default("block mb-2 font-bold text-gray-600")) }) -%}
     {{- parent() -}}
 {%- endblock form_label -%}
 
@@ -24,7 +24,7 @@
     {%- if errors|length > 0 -%}
         <ul>
             {%- for error in errors -%}
-                <li class="{{ error_item_class|default('text-red-700') }}">{{ error.message }}</li>
+                <li class="{{ error_item_class|default('text-sm text-red-400 mt-2') }}">{{ error.message }}</li>
             {%- endfor -%}
         </ul>
     {%- endif -%}
