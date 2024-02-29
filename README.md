@@ -80,6 +80,26 @@ Un formulaire Symfony fait référence à un composant de Symfony, un framework 
   - le message Help
 - On peut les remoduler dans l'ordre qu'on veut
 
-### a
+### Définir les termes suivants:
+- Providers
+  - fournir des données relatives au user
+- Firewall
+  - Un firewall est un appareil de sécurité réseau qui surveille le trafic réseau entrant et sortant et autorise ou bloque les paquets de donnés en se basant sur un ensemble de règles de sécurité.
+- Access Control
+  - Ensemble de règles qui définissent les opérations (lire, écrire, exécuter…) que pourra réaliser un utilisateur sur une ressource (les permissions)
+- Roles et Voters
+  - les "roles" représentent des ensembles de permissions ou de droits attribués à un utilisateur ou à un groupe d'utilisateurs. Les "voters" sont des composants logiciels qui évaluent si un utilisateur a les permissions nécessaires pour effectuer une action particulière en se basant sur ses rôles et d'autres critères.
+- Passport
+  - object qui contient les infos d'un user
+- Badge
+  - ajoute des infos au passport
 
-- a
+### Définir les termes suivant :
+- Argon2i
+  - fonction de hashing
+- Bcrypt
+  - fonction de hachage créée par Niels Provos et David Mazières.
+- Plaintext
+  - texte brut
+- BasicHTTP
+  - sert à envoyer des requête en texte brut en WS-http

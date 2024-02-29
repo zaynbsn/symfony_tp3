@@ -27,6 +27,9 @@ class Link
     #[ORM\OneToMany(targetEntity: Reaction::class, mappedBy: 'link')]
     private Collection $reactions;
 
+    #[ORM\ManyToOne(inversedBy: 'links')]
+    private ?User $user = null;
+
     public function __construct()
     {
         $this->reactions = new ArrayCollection();
@@ -99,6 +102,35 @@ class Link
                 $reaction->setLink(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getReactionDifference(): int
+    {
+        $likes = 0;
+        $dislikes = 0;
+
+        foreach ($this->reactions as $reaction) {
+            if ($reaction->getType() === 'like') {
+                $likes++;
+            } elseif ($reaction->getType() === 'dislike') {
+                $dislikes++;
+            }
+        }
+
+        // Calculate the difference
+        return $likes - $dislikes;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -27,8 +27,7 @@ class HomeController extends AbstractController
     public function add(Request $request): Response
     {
         $link = new Link();
-        $date = new \DateTimeImmutable("now");
-        $link->setCreatedAt($date);
+        $link->setCreatedAt(new \DateTimeImmutable());
         $form = $this->createForm(AddLinkType::class, $link);
         $form->handleRequest($request);
 
